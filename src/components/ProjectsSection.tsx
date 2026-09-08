@@ -20,7 +20,28 @@ export function ProjectsSection({
     ).matches;
     if (prefersReduced || !root.current) return;
 
+    const isMobile = window.matchMedia("(max-width: 850px)").matches;
+
     const ctx = gsap.context(() => {
+      if (isMobile) {
+        const panels = root.current!.querySelectorAll(".project-panel");
+        panels.forEach((panel, i) => {
+          gsap.from(panel, {
+            y: 40,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            delay: i * 0.08,
+            scrollTrigger: {
+              trigger: panel,
+              start: "top 88%",
+              toggleActions: "play none none reverse",
+            },
+          });
+        });
+        return;
+      }
+
       gsap.set(".projects-track", { xPercent: 0 });
 
       const track = root.current!.querySelector(".projects-track") as HTMLElement;
@@ -28,7 +49,7 @@ export function ProjectsSection({
       if (!track || panels.length === 0) return;
 
       const totalWidth = track.scrollWidth;
-      const scrollDistance = totalWidth - window.innerWidth + 80;
+      const scrollDistance = Math.max(totalWidth - window.innerWidth + 80, 0);
 
       const st = ScrollTrigger.create({
         trigger: ".projects-horizontal",

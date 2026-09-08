@@ -1,8 +1,28 @@
 import { PHONE } from "../data/content";
 
 export function CtaSection() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="cta-section">
+    <section className="cta-section reveal" ref={ref}>
       <div className="container cta-inner">
         <div>
           <span className="panel-kicker">Your next chapter starts somewhere.</span>
