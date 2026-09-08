@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { PHONE } from "../data/content";
 
 export function CtaSection() {
@@ -48,8 +49,28 @@ export function CtaSection() {
 }
 
 export function Footer() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer reveal" id="contact" ref={ref}>
       <div className="container footer-grid">
         <div>
           <a

@@ -20,7 +20,7 @@ export function ProjectsSection({
     ).matches;
     if (prefersReduced || !root.current) return;
 
-    const isMobile = window.matchMedia("(max-width: 850px)").matches;
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
     const ctx = gsap.context(() => {
       if (isMobile) {
@@ -48,17 +48,22 @@ export function ProjectsSection({
       const panels = root.current!.querySelectorAll(".project-panel");
       if (!track || panels.length === 0) return;
 
-      const totalWidth = track.scrollWidth;
-      const scrollDistance = Math.max(totalWidth - window.innerWidth + 80, 0);
+      const getScrollDistance = () => {
+        const totalWidth = track.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        return Math.max(totalWidth - viewportWidth, 0);
+      };
+
+      const scrollDistance = getScrollDistance();
 
       const st = ScrollTrigger.create({
         trigger: ".projects-horizontal",
         start: "top top",
-        end: `+=${Math.max(scrollDistance, 400)}`,
+        end: () => `+=${Math.max(getScrollDistance(), 400)}`,
         pin: true,
         scrub: 1,
         animation: gsap.to(track, {
-          x: () => -scrollDistance,
+          x: () => -getScrollDistance(),
           ease: "none",
         }),
         invalidateOnRefresh: true,

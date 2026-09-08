@@ -336,13 +336,14 @@ ul, ol { list-style: none; }
 .projects-track {
   display: flex;
   gap: 30px;
-  padding: 0 32px;
+  padding-left: max(32px, calc((100vw - 1160px) / 2));
+  padding-right: max(32px, calc((100vw - 1160px) / 2));
   will-change: transform;
 }
 .project-panel {
   flex-shrink: 0;
-  width: 420px;
-  max-width: 85vw;
+  width: 380px;
+  max-width: 80vw;
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
@@ -437,12 +438,12 @@ ul, ol { list-style: none; }
 }
 .projects-end {
   flex-shrink: 0;
-  width: 340px;
-  max-width: 85vw;
+  width: 280px;
+  max-width: 80vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 30px;
+  padding: 0 20px;
 }
 .projects-end-inner {
   display: flex;
@@ -1039,6 +1040,16 @@ ul, ol { list-style: none; }
   .detail-layout { gap: 50px; }
   .detail-visual img { height: 440px; }
   .enquiry-panel { gap: 35px; }
+  .projects-horizontal { padding-top: 90px; }
+  .projects-track {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+    gap: 24px;
+  }
+  .project-panel { width: calc(50% - 12px); max-width: 100%; }
+  .projects-end { width: 100%; max-width: 100%; padding: 20px 0; }
+  .projects-track-wrap { padding-bottom: 40px; }
 }
 
 /* ===== RESPONSIVE: SMALL TABLET / LARGE MOBILE (max-width: 850px) ===== */
