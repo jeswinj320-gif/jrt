@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { PHONE } from "../data/content";
+import { PHONE, projects } from "../data/content";
 
 export function Hero({ onExplore }: { onExplore: () => void }) {
   const root = useRef<HTMLDivElement>(null);
@@ -135,7 +135,7 @@ export function Hero({ onExplore }: { onExplore: () => void }) {
             <div className="hero-visual-overlay" />
           </div>
           <div className="hero-badge hero-badge-1">
-            <span className="hero-badge-num">03</span>
+            <span className="hero-badge-num">{String(projects.length).padStart(2, "0")}</span>
             <span className="hero-badge-label">Signature projects</span>
           </div>
           <div className="hero-badge hero-badge-2">

@@ -60,8 +60,8 @@ export function WhySection() {
         },
       });
 
-      gsap.to(".why-bg-text", {
-        xPercent: -20,
+      gsap.fromTo(".why-bg-text", { xPercent: 0 }, {
+        xPercent: -10,
         ease: "none",
         scrollTrigger: {
           trigger: ".why-section",

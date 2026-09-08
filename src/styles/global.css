@@ -25,7 +25,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
 
 body {
   font-family: var(--font-body);
@@ -318,7 +318,7 @@ ul, ol { list-style: none; }
   position: relative;
   background: var(--cream);
   padding-top: 120px;
-  overflow: hidden;
+  overflow-x: clip;
 }
 .projects-sticky-head {
   margin-bottom: 50px;
@@ -336,8 +336,8 @@ ul, ol { list-style: none; }
 .projects-track {
   display: flex;
   gap: 30px;
-  padding-left: max(32px, calc((100vw - 1160px) / 2));
-  padding-right: max(32px, calc((100vw - 1160px) / 2));
+  padding-left: max(32px, calc((100% - 1160px) / 2));
+  padding-right: max(32px, calc((100% - 1160px) / 2));
   will-change: transform;
 }
 .project-panel {
@@ -463,7 +463,7 @@ ul, ol { list-style: none; }
   background: #e7ede5;
   padding: 130px 0;
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
 }
 .why-bg-text {
   position: absolute;
@@ -478,6 +478,7 @@ ul, ol { list-style: none; }
   letter-spacing: -2px;
   pointer-events: none;
   overflow: hidden;
+  max-width: 100%;
 }
 .why-grid {
   display: grid;
@@ -612,7 +613,7 @@ ul, ol { list-style: none; }
   color: #fff;
   padding: 90px 0;
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
 }
 .cta-section::before {
   content: "";
@@ -640,7 +641,7 @@ ul, ol { list-style: none; }
   background: var(--green-deep);
   color: #dce8df;
   padding: 65px 0 25px;
-  overflow: hidden;
+  overflow-x: clip;
 }
 .footer-grid {
   display: grid;
@@ -726,6 +727,7 @@ ul, ol { list-style: none; }
   box-shadow: 12px 14px #d2dcd0;
   border-radius: 3px;
   overflow: visible;
+  max-width: calc(100% - 30px);
 }
 .detail-visual img {
   width: 100%; height: 520px;
@@ -740,7 +742,7 @@ ul, ol { list-style: none; }
   padding: 13px 17px;
   display: flex;
   flex-direction: column;
-  transform: rotate(4deg) translateX(50%);
+  transform: rotate(4deg);
   box-shadow: 5px 6px rgba(23, 60, 49, 0.15);
   border-radius: 2px;
   z-index: 2;
@@ -1131,7 +1133,7 @@ ul, ol { list-style: none; }
   .detail-main { padding-top: 90px; }
   .detail-visual { padding: 10px; }
   .detail-visual img { height: 280px; }
-  .detail-stamp { right: 0; transform: rotate(4deg) translateX(30%); }
+  .detail-stamp { right: 0; transform: rotate(4deg); }
   .detail-copy h1 { font-size: 36px; letter-spacing: -2px; }
   .detail-buttons { flex-direction: column; }
   .detail-buttons .button { width: 100%; }
