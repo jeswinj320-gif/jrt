@@ -1066,7 +1066,7 @@ ul, ol { list-style: none; }
   .projects-horizontal { padding-top: 80px; }
   .projects-head-row { grid-template-columns: 1fr; gap: 16px; }
   .section-desc { margin: 0; }
-  .projects-track { flex-direction: column; padding: 0 20px; gap: 24px; }
+  .projects-track { flex-direction: column; flex-wrap: nowrap; padding: 0 20px; gap: 24px; }
   .project-panel { width: 100%; max-width: 100%; }
   .projects-end { width: 100%; max-width: 100%; padding: 20px 0; }
   .why-grid { grid-template-columns: 1fr; gap: 40px; }
