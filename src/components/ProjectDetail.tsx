@@ -195,9 +195,16 @@ export function ProjectDetail({
                 key={img}
                 className={`gallery-card ${selectedImage === img ? "is-selected" : ""}`}
                 onClick={() => setSelectedImage(img)}
-                aria-label={`View image ${i + 1} of ${project.name}`}
+                aria-label={`Select image ${i + 1} of ${project.name}`}
+                aria-pressed={selectedImage === img}
+                data-cursor="image"
+                data-cursor-label="Select"
               >
-                <img src={img} alt={`${project.name} view ${i + 1}`} />
+                <img
+                  src={img}
+                  alt={`${project.name} view ${i + 1}`}
+                  loading="lazy"
+                />
                 <span>{String(i + 1).padStart(2, "0")}</span>
               </button>
             ))}

@@ -82,7 +82,10 @@ export const projects: Project[] = [
     location: "Madakkudi",
     mapsUrl: "https://maps.app.goo.gl/86xqX8JYDwZU9hSw8",
     image: "/images/Sri vellaiyammal garden-69/1000035270.jpg",
-    images: ["/images/Sri vellaiyammal garden-69/1000035270.jpg"],
+    images: [
+      "/images/Sri vellaiyammal garden-69/1000035270.jpg",
+      "/images/sri vellaiyammal garden/1000035270_(1).jpg",
+    ],
     whatsappMessage:
       "Hello Bee Home Creators, I am interested in Sri Vellaiyammal Garden - 69. I would like to know more details about the plots.",
     landmarks: [
